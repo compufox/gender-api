@@ -11,7 +11,11 @@
 
 (defun main ()
   (let ((app (make-instance 'ningle:app)))
-    (textery:load-grammar "words.json")
+    (textery:load-grammar (if (uiop:file-exists-p "words.json")
+                              "words.json"
+                              (namestring
+                               (asdf:system-relative-pathname :gender-api
+                                                              "src/words.json"))))
     
     (defroute (app "/api/gender" :method :GET)
       (setf (lr:response-headers ningle:*response*)
