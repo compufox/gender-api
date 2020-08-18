@@ -20,9 +20,9 @@
 	    
 	    (lr:response-body ningle:*response*)
 	    (textery:expand
-	     (format nil "{\"name\":\"~a\",\"gender\":\"#gender#\",\"confidence\":0.0}"
-		     (agetf (l:request-query-parameters ningle:*request*) "name"
-                            "")
+	     (format nil "{\"name\":\"~a\",\"gender\":\"#gender#\",\"confidence\":~a}"
+		     (agetf (l:request-query-parameters ningle:*request*) "name" "")
+                     (1- (random 1.0))))))
     
     (let ((handler (c:clackup app)))
       (handler-case
