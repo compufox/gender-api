@@ -1,5 +1,5 @@
 (defsystem "gender-api"
-  :version "0.1.0"
+  :version "0.1.1"
   :author "ava fox"
   :license "NPLv1+"
   :depends-on ("ningle"
