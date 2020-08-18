@@ -1,0 +1,33 @@
+* Gender-Api 
+
+  a silly gender ""api""
+
+** Usage
+
+drop into a lisp repl
+
+#+BEGIN_SRC lisp
+(ql:quickload :gender-api)
+(gender-api:main)
+#+END_SRC
+
+then you can curl http://127.0.0.1:5000/api/gender to get a gender.
+
+if you pass a name (...api/gender?name=Ava%20Fox) you can get back a gender with the name you passed
+
+** Installation
+
+Install a lisp (SBCL or Roswell)
+=git clone https://github.com/compufox/gender-api ~/common-lisp/gender-api=
+
+** Author
+
++ ava fox
+
+** Copyright
+
+Copyright (c) 2020 ava fox
+
+** License
+
+Licensed under the NPLv1+ License.
