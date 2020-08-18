@@ -22,7 +22,7 @@
 	     (format nil "{\"name\":\"~a\",\"gender\":\"#gender#\"}"
 		     (or (cdr (assoc "name" (l:request-query-parameters ningle:*request*)
 				     :test #'equal))
-			 "Placeholder")))))
+			 "")))))
     
     (let ((handler (c:clackup app)))
       (handler-case
