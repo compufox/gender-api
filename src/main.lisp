@@ -19,7 +19,7 @@
 	    
 	    (lr:response-body ningle:*response*)
 	    (textery:expand
-	     (format nil "{\"name\":\"~a\",\"gender\":\"#gender#\"}"
+	     (format nil "{\"name\":\"~a\",\"gender\":\"#gender#\",\"confidence\":0.0}"
 		     (or (cdr (assoc "name" (l:request-query-parameters ningle:*request*)
 				     :test #'equal))
 			 "")))))
