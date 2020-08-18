@@ -4,7 +4,8 @@
 		    (:lr :lack.response)
 		    (:l :lack.request))
   (:import-from :gender-api.utils
-   :defroute)
+   :defroute
+   :agetf)
   (:export :main))
 (in-package :gender-api)
 
@@ -20,9 +21,8 @@
 	    (lr:response-body ningle:*response*)
 	    (textery:expand
 	     (format nil "{\"name\":\"~a\",\"gender\":\"#gender#\",\"confidence\":0.0}"
-		     (or (cdr (assoc "name" (l:request-query-parameters ningle:*request*)
-				     :test #'equal))
-			 "")))))
+		     (agetf (l:request-query-parameters ningle:*request*) "name"
+                            "")
     
     (let ((handler (c:clackup app)))
       (handler-case
@@ -35,5 +35,8 @@
 	  (format t "~&whoopsies!")))
       (format t "~&your gender is now: shutting down")
       (c:stop handler)
-      (uiop:quit))))
+      
+      ;; in case we're running this through emacs,
+      ;;  don't exit
+      #-(or slynk swank) (uiop:quit))))
 
