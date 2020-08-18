@@ -13,11 +13,12 @@ drop into a lisp repl
 
 then you can curl http://127.0.0.1:5000/api/gender to get a gender.
 
-if you pass a name (...api/gender?name=Ava%20Fox) you can get back a gender with the name you passed
+if you pass a name (http://127.0.0.1:5000/api/gender?name=ava%20fox) you can get back a gender with the name you passed
 
 ** Installation
 
 Install a lisp (SBCL or Roswell)
+
 =git clone https://github.com/compufox/gender-api ~/common-lisp/gender-api=
 
 ** Author
