@@ -7,8 +7,8 @@
 drop into a lisp repl
 
 #+BEGIN_SRC lisp
-(ql:quickload :gender-api)
-(gender-api:main)
+* (ql:quickload :gender-api)
+* (gender-api:main)
 #+END_SRC
 
 then you can curl http://127.0.0.1:5000/api/gender to get a gender.
@@ -20,6 +20,17 @@ if you pass a name (http://127.0.0.1:5000/api/gender?name=ava%20fox) you can get
 Install a lisp (SBCL or Roswell)
 
 =git clone https://github.com/compufox/gender-api ~/common-lisp/gender-api=
+
+then follow along with Usage
+
+** Building
+
+using sbcl (sbcl) or roswell (ros run)
+
+#+BEGIN_SRC shell
+$ ros run --eval "(ql:quickload :gender-api)" --eval "(asdf:make :gender-api)"
+$ cp ~/common-lisp/gender-api/src/words.json ~/common-lisp/gender-api/bin/
+#+END_SRC
 
 ** Author
 
