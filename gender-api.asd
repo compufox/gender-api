@@ -11,4 +11,7 @@
                 :components
                 ((:file "utils")
 		 (:file "main"))))
-  :description "")
+  :description ""
+  :build-operation "program-op"
+  :build-pathname "bin/gender-api"
+  :entry-point "gender-api:main")
